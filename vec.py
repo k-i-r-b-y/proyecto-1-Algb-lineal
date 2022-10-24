@@ -17,8 +17,7 @@ def getitem(v,k):
         return v.f[k]
     else:
         return 0
-    
-    
+     
 def setitem(v,k,val):
     """
     Set the element of v with label d to be val.
@@ -80,8 +79,6 @@ def equal(u,v):
     if n == len(u.D):
         return True
     else: return False
-
-
 
 def add(u,v):
     """
@@ -152,7 +149,11 @@ def dot(u,v):
     12
     """
     assert u.D == v.D
-    pass
+    n = 0
+    for i in v.D:
+        n += getitem(v, i) * getitem(u, i)
+    return n
+    
 
 def scalar_mul(v, alpha):
     """
