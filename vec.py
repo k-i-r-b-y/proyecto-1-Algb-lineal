@@ -41,7 +41,7 @@ def setitem(v,k,val):
 
 def equal(u,v):
     """
-    Return true iff u is equal to v.
+    Return true if u is equal to v.
     Because of sparse representation, it is not enough to compare dictionaries
 
     Consider using brackets notation u[...] and v[...] in your procedure
@@ -73,7 +73,15 @@ def equal(u,v):
     False
     """
     assert u.D == v.D
-    pass
+    n = 0
+    for i in v.D:
+        if getitem(v, i) == getitem(u, i):
+            n += 1
+    if n == len(u.D):
+        return True
+    else: return False
+
+
 
 def add(u,v):
     """
