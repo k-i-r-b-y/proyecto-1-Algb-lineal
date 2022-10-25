@@ -36,7 +36,8 @@ def setitem(v,k,val):
     0
     """
     assert k in v.D
-    pass
+    v.f[k] = val
+    return v
 
 def equal(u,v):
     """
@@ -115,7 +116,9 @@ def add(u,v):
     True
     """
     assert u.D == v.D
-    pass
+    for i in u.D:
+        u.f[i] = u.f[i]+ v.f[i] 
+    return u
 
 def dot(u,v):
     """
@@ -154,7 +157,6 @@ def dot(u,v):
         n += getitem(v, i) * getitem(u, i)
     return n
     
-
 def scalar_mul(v, alpha):
     """
     Returns the scalar-vector product alpha times v.
@@ -177,6 +179,7 @@ def scalar_mul(v, alpha):
     for i in v.D:
         v.f[i] = getitem(v,i)*alpha
     return v
+
 def neg(v):
     """
     Returns the negation of a vector.
@@ -192,7 +195,7 @@ def neg(v):
     >>> -Vec({'a','b','c'}, {'a':1}) == Vec({'a','b','c'}, {'a':-1})
     True
     """
-    pass
+    return scalar_mul(v, -1)
 
 ###############################################################################################################################
 
