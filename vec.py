@@ -173,8 +173,10 @@ def scalar_mul(v, alpha):
     >>> u == Vec({'x','y','z','w'},{'x':1,'y':2,'z':3,'w':4})
     True
     """
-    pass
-
+    
+    for i in v.D:
+        v.f[i] = getitem(v,i)*alpha
+    return v
 def neg(v):
     """
     Returns the negation of a vector.
