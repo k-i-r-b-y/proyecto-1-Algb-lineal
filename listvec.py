@@ -1,3 +1,5 @@
+from math import sqrt
+
 class ListVec(list):
     
     def vec_sum(self, vec):
@@ -28,4 +30,5 @@ class ListVec(list):
     def similarity(self, b):        
 
         assert len(self) == len(b)
-        return self.dot(b)/(self.dot(b)**(1/2)*(self.dot(b)**(1/2)))
+        denominador = sqrt(self.dot(self))*sqrt(b.dot(b))
+        return self.dot(b)/denominador
